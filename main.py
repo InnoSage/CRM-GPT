@@ -1,8 +1,7 @@
-from fastapi import FastAPI, HTTPException
-from openai import OpenAI
-import os
-from user_query import UserQuery
-import httpx
+from fastapi import FastAPI
+
+from models.response_model import SQLResponseData, StandardResponse
+from models.user_query import UserQuery
 from schema import schema
 from context import context
 
@@ -33,7 +32,8 @@ async def make_sql(user_query: UserQuery):
     #
     #     # 응답 메시지 추출
     #     result = response['choices'][0]['message']['content']
-    #     return {"response": result}
-    #
+
+        # data = SQLResponseData(sql=result)
+        # return StandardResponse(isSuccess=True, code="200", message="Success", data=data.dict())
     # except Exception as e:
-    #     raise HTTPException(status_code=500, detail=str(e))
+    #     return StandardResponse(isSuccess=False, code="500", message=str(e), data={})

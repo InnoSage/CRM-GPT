@@ -17,6 +17,6 @@ context = """
     User Query: "2024년에 거래된 금액을 알려주세요"
 
     {{
-        sql : "SELECT c2.value AS 거래금액 FROM content c1 JOIN content c2 ON c1.deal_id = c2.deal_id AND c2.attribute_id = (SELECT id FROM attribute WHERE name = '거래금액') JOIN attribute a ON c1.attribute_id = a.id WHERE a.name = '거래일' AND c1.value LIKE '2024'"
+        "sql" : "SELECT c2.value AS 거래금액 FROM content c1 JOIN content c2 ON c1.deal_id = c2.deal_id AND c2.attribute_id = (SELECT id FROM attribute WHERE name = '거래금액') JOIN attribute a ON c1.attribute_id = a.id WHERE a.name = '거래일' AND c1.value LIKE '2024'"
     }}
 """
